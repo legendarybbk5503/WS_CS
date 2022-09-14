@@ -7,8 +7,7 @@ def newResult():
         if choice == -1: break
         elif choice in range(1, len(school)+1):
             medal[choice-1] += 1
-        else:
-            print("Invalid school number")
+        else: print("Invalid school number")
 
 def output():
     for i in range(len(school)):
