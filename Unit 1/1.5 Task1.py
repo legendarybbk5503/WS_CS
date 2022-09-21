@@ -1,7 +1,8 @@
-def multiple(table, startnum, endnum, pupilName):
-    print(f"Hi, {pupilName} ... here is your times table")
-    for i in range(startnum, endnum+1):
-        print(f"{table} x {i} = {table*i}")
+class c():
+    def multiple(table, startnum, endnum, pupilName):
+        print(f"Hi, {pupilName} ... here is your times table")
+        for i in range(startnum, endnum+1):
+            print(f"{table} x {i} = {table*i}")
 
 def main():
     print("What is your name?")
@@ -10,6 +11,7 @@ def main():
     table = int(input())
     startnum = int(input())
     endnum = int(input())
-    multiple(table, startnum, endnum, pupilName)
+    c().multiple(table, startnum, endnum, pupilName)
 
-main()
+if __name__ == "__main__":
+    main()
