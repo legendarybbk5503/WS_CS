@@ -18,7 +18,7 @@ class Sort():
                     self.__list[j], self.__list[j+1] = self.__list[j+1], self.__list[j]
         return self.__list
 
-    def BinarySearch(self, x): #search x in self.__list
+    def BinarySearch(self, x): #search x in self.__list3
         _list, i, j = self.__list, 0, len(self.__list)-1
         while True:
             if _list[(i+j)//2] == x: return (i+j)//2
