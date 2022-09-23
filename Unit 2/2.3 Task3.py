@@ -28,7 +28,7 @@ class Sort():
     
     def LinearSearch(self, x):
         i = [i for i in range(len(self.__list)) if self.__list[i] == x]
-        return i[0] if len(i) else -1
+        return -1 if not len(i) else i[0]
 
 def main():
     _list = [15, 73, 29, 66, 35, 11, 43, 21]
