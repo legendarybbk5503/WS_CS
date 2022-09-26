@@ -10,7 +10,7 @@ class Sort():
                 pos -= 1
             self.__list[pos] = now
         return self.__list
-    
+
     def BubbleSort(self):
         for _ in range(len(self.__list)-1):
             for j in range(len(self.__list)-1):
