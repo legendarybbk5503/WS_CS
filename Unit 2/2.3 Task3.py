@@ -1,3 +1,7 @@
+from tkinter import N
+from turtle import right
+
+
 class Sort():
     def __init__(self, __list):
         self.__list = __list
@@ -18,7 +22,40 @@ class Sort():
                     self.__list[j], self.__list[j+1] = self.__list[j+1], self.__list[j]
         return self.__list
 
-    def BinarySearch(self, x): #search x in self.__list3
+    def MergeSort(self, _list = None):
+        if _list is None: _list = self.__list
+        if len(_list) > 1:
+            mid = len(_list) // 2
+            lefthalf = _list[:mid]
+            righthalf = _list[mid:]
+
+            self.MergeSort(lefthalf)
+            self.MergeSort(righthalf)
+
+            i, j, k = 0, 0, 0
+            while i < len(lefthalf) and j < len(righthalf):
+                if lefthalf[i] < righthalf[j]:
+                    _list[k] = lefthalf[i]
+                    i += 1
+                else:
+                    _list[k] = righthalf[j]
+                    j += 1
+                k += 1
+
+            while i < len(lefthalf):
+                _list[k] = lefthalf[i]
+                i += 1
+                k += 1
+            
+            while j < len(righthalf):
+                _list[k] = righthalf[j]
+                j += 1
+                k += 1
+                
+        self.__list = _list
+        return self.__list
+
+    def BinarySearch(self, x):
         _list, i, j = self.__list, 0, len(self.__list)-1
         while True:
             if _list[(i+j)//2] == x: return (i+j)//2
@@ -35,6 +72,7 @@ def main():
     c = Sort(_list)
     print(c.InsertionSort())
     print(c.BubbleSort())
+    print(c.MergeSort())
     print(c.BinarySearch(66))
     print(c.LinearSearch(67))
 
