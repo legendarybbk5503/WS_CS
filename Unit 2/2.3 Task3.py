@@ -58,7 +58,7 @@ class Sort():
             elif i == j: return -1
             elif _list[(i+j)//2] > x: j = (i+j)//2-1
             elif _list[(i+j)//2] < x: i = (i+j)//2+1
-    
+
     def LinearSearch(self, x):
         i = [i for i in range(len(self.__list)) if self.__list[i] == x]
         return -1 if not len(i) else i[0]
