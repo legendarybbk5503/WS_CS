@@ -1,7 +1,3 @@
-from tkinter import N
-from turtle import right
-
-
 class Sort():
     def __init__(self, __list):
         self.__list = __list
@@ -51,7 +47,7 @@ class Sort():
                 _list[k] = righthalf[j]
                 j += 1
                 k += 1
-                
+
         self.__list = _list
         return self.__list
 
