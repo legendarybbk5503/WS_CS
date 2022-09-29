@@ -2,7 +2,7 @@ class C():
     def __init__(self):
         self.__found__ = {}
 
-    def collatz(self, num):
+    def countCollatz(self, num):
         x = num
         count = 1
         while x != 1:
@@ -22,7 +22,7 @@ def main():
     c = C()
     for i in range(1, 1000000):
         print(i)
-        c.collatz(i)
+        c.countCollatz(i)
     print(c.largest())
 
 if __name__ == "__main__":
