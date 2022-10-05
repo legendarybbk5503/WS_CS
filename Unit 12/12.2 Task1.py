@@ -30,8 +30,7 @@ class Fish(Animal):
 class Duck(Animal):
     def __init__(self, s, n):
         super().__init__(s, n)
-        print(self.__size)
-    
+            
     def feed(self):
         super().feed()
         if self.__size == 5:
