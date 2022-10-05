@@ -1,4 +1,4 @@
-class Animal():
+class Animal:
     def __init__(self, s, n):
         self.__state = s
         self.__size = n
