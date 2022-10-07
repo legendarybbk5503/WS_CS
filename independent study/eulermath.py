@@ -3,7 +3,7 @@ import decimal
 
 class Functions():
     def __init__(self):
-        self.__phi__ = (1+5**0.5)/2
+        self._phi = (1+5**0.5)/2
     
     def isPrime(self, x):
         sqrt = int(x**0.5)+1
@@ -39,9 +39,9 @@ class Functions():
     def fibonacci(self, n):
         decimal.getcontext().prec = 100
         n = decimal.Decimal(n)
-        self.__phi__ = decimal.Decimal(self.__phi__)
-        a = decimal.Decimal(self.__phi__**n)
-        b = decimal.Decimal((self.__phi__*-1)**(-1*n))
+        self._phi = decimal.Decimal(self._phi)
+        a = decimal.Decimal(self._phi**n)
+        b = decimal.Decimal((self._phi*-1)**(-1*n))
         x = int((a - b) / decimal.Decimal(5**0.5))
         return x
 

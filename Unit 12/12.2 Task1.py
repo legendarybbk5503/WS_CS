@@ -1,17 +1,17 @@
 class Animal:
     def __init__(self, s, n):
-        self.state = s
-        self.size = n
+        self._state = s
+        self._size = n
 
     def feed(self):
-        self.size += 1
-        print(f"{self.state} fed")
+        self._size += 1
+        print(f"{self._state} fed")
     
     def getState(self):
-        return self.state
+        return self._state
     
     def getSize(self):
-        return self.size
+        return self._size
 
 class Fish(Animal):
     def __init__(self, s):
@@ -22,10 +22,10 @@ class Fish(Animal):
         self.__maxSize = m
     
     def feed(self):
-        self.size += 2
-        print(f"{self.state} fed")
-        if self.size >= self.__maxSize:
-            self.state = "BIG FISH"
+        self._size += 2
+        print(f"{self._state} fed")
+        if self._size >= self.__maxSize:
+            self._state = "BIG FISH"
 
 class Duck(Animal):
     def __init__(self, s, n):
@@ -33,8 +33,8 @@ class Duck(Animal):
 
     def feed(self):
         super().feed()
-        if self.size == 5:
-            self.state = "BIG DUCK"
+        if self._size == 5:
+            self._state = "BIG DUCK"
 
 def main():
     thisFish = Fish("little fish")
