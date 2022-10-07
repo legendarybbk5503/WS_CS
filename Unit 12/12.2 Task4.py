@@ -1,6 +1,3 @@
-from itertools import product
-
-
 class Order:
     def __init__(self, no, date):
         self._orderNumber = no
