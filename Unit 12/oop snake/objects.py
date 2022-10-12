@@ -36,12 +36,12 @@ class snake:
     def move(self):
         for i in range(len(self._snakeBody)-1, 0, -1):
             #get previous (x, y)
-            x = self._snakeBody[i-1].xocr()
-            y = self._snakeBody[i-1].yocr()
+            x = self._snakeBody[i-1].xcor()
+            y = self._snakeBody[i-1].ycor()
             #move current body part to new location (closer to head)
-            self._snakeBody.goto(x, y)
+            self._snakeBody[i].goto(x, y)
         
-        if self.snake_body != []: #if snakeBody exists
+        if self._snakeBody != []: #if snakeBody exists
             x = self._snakeHead.xcor() #get (x, y)
             y = self._snakeHead.ycor()
             self._snakeBody[0].goto(x, y) #move the closest body to head pos
@@ -67,9 +67,16 @@ class snake:
         part.penup()
         self._snakeBody.append(part)
     
-
+    def headAndBodyCollCheck(self):
+        for part in self._snakeBody:
+            print(f"part: {part}")
+            if part.distance(self._snakeHead) < 20:
+                print("head and body collision")
+                return True
     
-    def clearBody(self):
+    def snakeDie(self):
+        self._snakeHead.goto(0,0)
+        self._snakeHead._direction = "stop"
         for part in self._snakeBody:
             part.hideturtle()
         self._snakeBody = []
@@ -83,7 +90,7 @@ class food:
         self._item.color("red")
         self._item.penup()
         self._item.shapesize(0.50, 0.50)
-        self._item.goto(0,0)
+        self._item.goto(random.randint(-290, 290), random.randint(-290, 290))
         self._move = False
     
     def update(self):
