@@ -1,8 +1,11 @@
 class Queue:
 
-    def __init__(self, queue, maxSize = None):
+    def __init__(self, queue: list, maxSize: int = None):
+        if not isinstance(queue, list) or (not isinstance(maxSize, int) and maxSize is not None):
+            raise TypeError
+        
         self.__queue = queue
-
+        
         #maxSize = None => dynamic
         #maxSize = n    => static with maxSize n
         if maxSize is None:
