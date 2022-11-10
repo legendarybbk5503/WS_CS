@@ -18,13 +18,13 @@ class Queue:
     def __isEmpty(self):
         return len(self.__queue) == 0
 
-    def add(self, item): #add item at [-1]
+    def enqueue(self, item): #add item at [-1]
         if self.__isFull():
             raise Exception("The queue is full")
         else:
             self.__queue.append(item)
 
-    def remove(self): #remove item at [0]
+    def dequeue(self): #remove item at [0]
         if self.__isEmpty():
             raise Exception("The queue is empty")
         else:
@@ -35,15 +35,15 @@ class Queue:
 
 def main():
     s = Queue([1, 2, 3, 4, 5]) #dynamic
-    s.add(6)
+    s.enqueue(6)
     print(s.getQueue())
-    s.remove()
+    s.dequeue()
     print(s.getQueue())
 
     q = Queue([1, 2, 3, 4, 5], 5) #static
-    q.add(6)
+    q.enqueue(6)
     print(q.getQueue())
-    q.remove()
+    q.dequeue()
     print(q.getQueue())
 
 if __name__ == "__main__":
