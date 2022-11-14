@@ -35,6 +35,9 @@ class Queue:
     
     def getQueue(self):
         return self.__queue
+    def getMode(self):
+        if self.__mode == "static": return "static", self.__maxSize
+        else: return "dynamic", -1
 
 def main():
     s = Queue([1, 2, 3, 4, 5]) #dynamic
