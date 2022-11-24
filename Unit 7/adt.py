@@ -39,18 +39,59 @@ class Queue:
         if self.__mode == "static": return "static", self.__maxSize
         else: return "dynamic", -1
 
-def main():
+class Stack:
+
+    def __init__(self, stack: list, maxSize: int):
+        self.__stack = stack
+        self.__maxSize = maxSize
+
+    def __isFull(self):
+        return len(self.__stack) == self.__maxSize
+    def __isEmpty(self):
+        return len(self.__stack) == 0
+
+    def push(self, item):
+        if self.__isFull():
+            raise Exception("The stack is full")
+        else:
+            self.__stack.insert(0, item)
+    
+    def pop(self):
+        if self.__isEmpty():
+            raise Exception("The stack is empty")
+        else:
+            return self.__stack.pop(0)  
+
+    def getStack(self):
+        return self.__stack
+    def getMaxSize(self):
+        return self.__maxSize
+    def peek(self):
+        return self.__stack[0]
+    def size(self):
+        return len(self.__stack)
+
+
+'''def main():
     s = Queue([1, 2, 3, 4, 5]) #dynamic
     s.enqueue(6)
     print(s.getQueue())
-    s.dequeue()
+    s.dequeue()25
     print(s.getQueue())
 
     q = Queue([1, 2, 3, 4, 5], 5) #static
     q.enqueue(6)
     print(q.getQueue())
     q.dequeue()
-    print(q.getQueue())
+    print(q.getQueue())'''
+
+def main():
+    s = Stack(list("robert"), 10)
+    print(s.pop())
+    print(s.getStack())
+    s.push('a')
+    s.push('b')
+    print(s.getStack())
 
 if __name__ == "__main__":
     main()
