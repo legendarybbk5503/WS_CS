@@ -77,7 +77,7 @@ class Stack:
     s.enqueue(6)
     print(s.getQueue())
     s.dequeue()25
-    print(s.getQueue())
+    print(s.getQueue()3
 
     q = Queue([1, 2, 3, 4, 5], 5) #static
     q.enqueue(6)
