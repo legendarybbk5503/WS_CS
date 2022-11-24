@@ -45,18 +45,18 @@ class Stack:
         self.__stack = stack
         self.__maxSize = maxSize
 
-    def __isFull(self):
+    def __isFull(self): #check if it is full
         return len(self.__stack) == self.__maxSize
-    def __isEmpty(self):
+    def __isEmpty(self): #check if it is empty
         return len(self.__stack) == 0
 
-    def push(self, item):
+    def push(self, item): #add item at [0]
         if self.__isFull():
             raise Exception("The stack is full")
         else:
             self.__stack.insert(0, item)
     
-    def pop(self):
+    def pop(self): #remove item at [0] and return it 
         if self.__isEmpty():
             raise Exception("The stack is empty")
         else:
@@ -64,7 +64,7 @@ class Stack:
 
     def getStack(self):
         return self.__stack
-    def getMaxSize(self):
+    def getMaxSize(self): 
         return self.__maxSize
     def peek(self):
         return self.__stack[0]
@@ -77,7 +77,7 @@ class Stack:
     s.enqueue(6)
     print(s.getQueue())
     s.dequeue()25
-    print(s.getQueue()3
+    print(s.getQueue()
 
     q = Queue([1, 2, 3, 4, 5], 5) #static
     q.enqueue(6)
