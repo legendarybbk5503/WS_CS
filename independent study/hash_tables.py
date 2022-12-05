@@ -53,7 +53,7 @@ class HashTable:
                 if i == mod:
                     raise Exception(f"stuck at {item}\n{hash}")
         self.__hash = dict(sorted(hash.items()))
-    
+        
     def search(self, item) -> int: #key
         mod = self.__algorithm(item)
         i = mod
