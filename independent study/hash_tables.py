@@ -21,13 +21,14 @@ class HashTable:
             x = map(int, [x[i:i+2] for i in range(0, len(x), 2)])
             return sum(x) % self.__slots
     
-    def hashList(self) -> list:
+    def hashList(self): #return list to self.__hash
         hash = [None] * self.__slots
         for item in self.__items:
             mod = self.__algorithm(item)
             i = mod
             while True:
-                if hash[i] is None or hash[i] == "null":
+                x = hash[i]
+                if x is None or x == "null":
                     hash[i] = item
                     break
                 i = (i+1) % self.__slots
@@ -35,7 +36,7 @@ class HashTable:
                     raise Exception(f"stuck at {item}\n{hash}")
         self.__hash = hash
     
-    def hashDict(self) -> dict:
+    def hashDict(self): #return dict to self.__hash
         hash = {}
         for item in self.__items:
             mod = self.__algorithm(item)
@@ -93,7 +94,7 @@ class HashTable:
 
 
 def main():
-    x = HashTable([2828, 1361, 2461, "2aervt", "fdashae"], 17, "mid")
+    x = HashTable([2828, 1361, 2461, "2aervt", "fdashae"], 17, "fold")
     x.hashList()
     print(x.getHash())
     print(x.search(2828))
