@@ -1,6 +1,6 @@
 class HashTable:
     
-    def __init__(self, items: list, slots: int, algorithm: str):
+    def __init__(self, items: list, slots: int, algorithm: str = "mod"):
         self.__items = items
         self.__slots = slots
         self.__algor = algorithm #algorithm in ["mod", "mid", "fold"]
@@ -94,7 +94,7 @@ class HashTable:
 
 
 def main():
-    x = HashTable([2828, 1361, 2461, "2aervt", "fdashae"], 17, "fold")
+    x = HashTable([2828, 1361, 2461, "2aervt", "fdashae"], 17)
     x.hashList()
     print(x.getHash())
     print(x.search(2828))
