@@ -27,7 +27,7 @@ class HashTable:
             mod = self.__algorithm(item)
             i = mod
             while True:
-                if hash[i] is None:
+                if hash[i] is None or hash[i] == "null":
                     hash[i] = item
                     break
                 i = (i+1) % self.__slots
@@ -44,6 +44,10 @@ class HashTable:
                 if i not in hash.keys():
                     hash.update({i: item})
                     break
+                if i in hash.keys():
+                    if hash.get(i) == "null":
+                        hash.update({i: item})
+                        break
                 i = (i+1) % self.__slots
                 if i == mod:
                     raise Exception(f"stuck at {item}\n{hash}")
@@ -72,7 +76,18 @@ class HashTable:
                 i = (i+1) % self.__slots
                 if i == mod:
                     return None
-                
+    
+    def delete(self, item):
+        x = self.search(item)
+        if x is None:
+            raise Exception("item not found")
+        else:
+            i, item = x
+            if type(self.__hash) == list:
+                self.__hash[i] = "null"
+            elif type(self.__hash) == dict:
+                self.__hash.update({i: "null"})
+    
     def getHash(self) -> list | dict:
         return self.__hash
 
@@ -82,8 +97,13 @@ def main():
     x.hashList()
     print(x.getHash())
     print(x.search(2828))
+    x.delete(2828)
+    print(x.search(2828))
+    
     x.hashDict()
     print(x.getHash())
+    print(x.search(2828))
+    x.delete(2828)
     print(x.search(2828))
 
 if __name__ == "__main__":
