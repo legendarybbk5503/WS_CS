@@ -25,8 +25,8 @@ class Sort():
             lefthalf = _list[:mid]
             righthalf = _list[mid:]
 
-            self.MergeSort(lefthalf)
-            self.MergeSort(righthalf)
+            self.mergeSort(lefthalf)
+            self.mergeSort(righthalf)
 
             i, j, k = 0, 0, 0
             while i < len(lefthalf) and j < len(righthalf):
