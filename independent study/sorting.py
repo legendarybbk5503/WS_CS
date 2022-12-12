@@ -1,3 +1,6 @@
+from random import randint
+from time import perf_counter_ns
+
 class Sort():
     def __init__(self, __list):
         self.__list = __list
@@ -63,14 +66,23 @@ class Sort():
         i = [i for i in range(len(self.__list)) if self.__list[i] == x]
         return -1 if not len(i) else i[0]
 
-def main():
-    _list = [15, 73, 29, 66, 35, 11, 43, 21]
+def timeCounter(method):
+    start = perf_counter_ns()
+    method()
+    stop = perf_counter_ns()
+    return stop-start
+    
+
+def main(x):
+    _list = [randint(1, 1000) for _ in range(x)]
     c = Sort(_list)
-    print(c.insertionSort())
-    print(c.bubbleSort())
-    print(c.mergeSort())
-    print(c.binarySearch(66))
-    print(c.linearSearch(67))
+    print(timeCounter(c.insertionSort))
+    print(timeCounter(c.bubbleSort))
+    print(timeCounter(c.mergeSort))
+    print(timeCounter(_list.sort))
+    #print(timeCounter(c.binarySearch(66)))
+    #print(timeCounter(c.linearSearch(67)))
 
 if __name__ == "__main__":
-    main()
+    main(1000)
+    main(2000)
