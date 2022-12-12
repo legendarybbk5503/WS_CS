@@ -58,7 +58,7 @@ class HashTable:
         mod = self.__algorithm(item)
         i = mod
         
-        if type(self.__hash) == list:
+        if isinstance(self.__hash, list):
             while True:
                 if self.__hash[i] is None:
                     return None
@@ -68,7 +68,7 @@ class HashTable:
                 if i == mod:
                     return None
 
-        elif type(self.__hash) == dict:
+        elif isinstance(self.__hash, dict):
             while True:
                 if i not in self.__hash.keys():
                     return None
@@ -84,9 +84,9 @@ class HashTable:
             raise Exception("item not found")
         else:
             i, item = x
-            if type(self.__hash) == list:
+            if isinstance(self.__hash, list):
                 self.__hash[i] = "null"
-            elif type(self.__hash) == dict:
+            elif isinstance(self.__hash, dict):
                 self.__hash.update({i: "null"})
     
     def getHash(self) -> list | dict:
