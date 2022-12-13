@@ -57,10 +57,14 @@ class Sort():
     def binarySearch(self, x):
         _list, i, j = self.__list, 0, len(self.__list)-1
         while True:
-            if _list[(i+j)//2] == x: return (i+j)//2
-            elif i == j: return -1
-            elif _list[(i+j)//2] > x: j = (i+j)//2-1
-            elif _list[(i+j)//2] < x: i = (i+j)//2+1
+            if _list[(i+j)//2] == x:
+                return (i+j)//2
+            elif i == j:
+                return -1
+            elif _list[(i+j)//2] > x:
+                j = (i+j)//2-1
+            elif _list[(i+j)//2] < x:
+                i = (i+j)//2+1
 
     def linearSearch(self, x):
         i = [i for i in range(len(self.__list)) if self.__list[i] == x]
@@ -84,5 +88,5 @@ def main(x):
     #print(timeCounter(c.linearSearch(67)))
 
 if __name__ == "__main__":
-    main(1000)
-    main(2000)
+    main(10_000)
+    
