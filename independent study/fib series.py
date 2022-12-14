@@ -1,14 +1,13 @@
-import sys
+import math
 import decimal
 
-sys.set_int_max_str_digits(1_000_000)
+root5 = decimal.Decimal(5).sqrt()
+phi1 = (1+root5)/2
+phi2 = (1-root5)/2
 
-def fib(n):
-    decimal.getcontext().prec = 20_000
-    root5 = decimal.Decimal(5).sqrt()
-    phi1 = (1+root5)/2
-    phi2 = (1-root5)/2
-    return round((phi1**n - phi2**n) / root5)
-    
+n = 1
+while True:
+    print(n)
+    print(math.floor((math.pow(phi1, n)-math.pow(phi2, n))/root5))
+    n += 1  
 
-print(fib(100000))
