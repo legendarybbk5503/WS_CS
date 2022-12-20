@@ -2,7 +2,7 @@ def sudoku(puzzle):
     def trial(i, j):
         trial_list = []
         row = puzzle[i]
-        column = [puzzle[x][j] for x in range(0, 9)]
+        column = [puzzle[x][j] for x in range(9)]
         sq_i, sq_j = i//3, j//3
         square = []
         for x in range(3):

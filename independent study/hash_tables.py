@@ -1,6 +1,6 @@
 class HashTable:
     
-    def __init__(self, items: list, slots: int, algorithm: str = "mod"):
+    def __init__(self, items: list, slots: int, algorithm: str = "mod"):        
         self.__items = items
         self.__slots = slots
         self.__algor = algorithm #algorithm in ["mod", "mid", "fold"]
@@ -43,12 +43,11 @@ class HashTable:
             i = mod
             while True:
                 if i not in hash.keys():
-                    hash.update({i: item})
+                    hash[i] = item
                     break
-                if i in hash.keys():
-                    if hash.get(i) == "null":
-                        hash.update({i: item})
-                        break
+                if hash.get(i) == "null":
+                    hash[i] = item
+                    break
                 i = (i+1) % self.__slots
                 if i == mod:
                     raise Exception(f"stuck at {item}\n{hash}")
@@ -82,12 +81,11 @@ class HashTable:
         x = self.search(item)
         if x is None:
             raise Exception("item not found")
-        else:
-            i, item = x
-            if isinstance(self.__hash, list):
-                self.__hash[i] = "null"
-            elif isinstance(self.__hash, dict):
-                self.__hash.update({i: "null"})
+        i, item = x
+        if isinstance(self.__hash, list):
+            self.__hash[i] = "null"
+        elif isinstance(self.__hash, dict):
+            self.__hash.update({i: "null"})
     
     def getHash(self) -> list | dict:
         return self.__hash
@@ -96,12 +94,13 @@ class HashTable:
 def main():
     x = HashTable([2828, 1361, 2461, "2aervt", "fdashae"], 17)
     x.hashList()
-    print(x.getHash())
-    print(x.search(2828))
-    x.delete(2828)
-    print(x.search(2828))
-    
+    _extracted_from_main_4(x)
     x.hashDict()
+    _extracted_from_main_4(x)
+
+
+# TODO Rename this here and in `main`
+def _extracted_from_main_4(x):
     print(x.getHash())
     print(x.search(2828))
     x.delete(2828)
